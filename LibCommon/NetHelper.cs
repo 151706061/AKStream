@@ -58,8 +58,9 @@ namespace LibCommon
                 new RemoteCertificateValidationCallback(CheckValidationResult);
 
             // 这里设置了协议类型。
-            ServicePointManager.SecurityProtocol =
-                SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+            // ServicePointManager.SecurityProtocol =
+            //     SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.SystemDefault;
             ServicePointManager.CheckCertificateRevocationList = false;
             ServicePointManager.DefaultConnectionLimit = 100;
             ServicePointManager.Expect100Continue = false;
@@ -155,8 +156,9 @@ namespace LibCommon
                 new RemoteCertificateValidationCallback(CheckValidationResult);
 
             // 这里设置了协议类型。
-            ServicePointManager.SecurityProtocol =
-                SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+            // ServicePointManager.SecurityProtocol =
+            //     SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.SystemDefault;
             ServicePointManager.CheckCertificateRevocationList = false;
             ServicePointManager.DefaultConnectionLimit = 100;
             ServicePointManager.Expect100Continue = false;
@@ -252,8 +254,9 @@ namespace LibCommon
                 new RemoteCertificateValidationCallback(CheckValidationResult);
 
             // 这里设置了协议类型。
-            ServicePointManager.SecurityProtocol =
-                SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.SystemDefault;
+            // ServicePointManager.SecurityProtocol =
+            //     SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
             ServicePointManager.CheckCertificateRevocationList = false;
             ServicePointManager.DefaultConnectionLimit = 100;
             ServicePointManager.Expect100Continue = false;
@@ -354,7 +357,8 @@ namespace LibCommon
                 new RemoteCertificateValidationCallback(CheckValidationResult);
 
             // 这里设置了协议类型。
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls;
+            //ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.SystemDefault;
             ServicePointManager.CheckCertificateRevocationList = false;
             ServicePointManager.DefaultConnectionLimit = 100;
             ServicePointManager.Expect100Continue = false;
@@ -409,6 +413,7 @@ namespace LibCommon
             }
             catch (WebException e)
             {
+               
                 response = (HttpWebResponse)e.Response;
                 if (response == null) return e.Message;
                 using (Stream errData = response.GetResponseStream())
@@ -423,6 +428,7 @@ namespace LibCommon
             }
             catch (Exception e)
             {
+                
                 return e.Message;
             }
             finally
@@ -477,7 +483,8 @@ namespace LibCommon
                 new RemoteCertificateValidationCallback(CheckValidationResult);
 
             // 这里设置了协议类型。
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls;
+            //ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.SystemDefault;
             ServicePointManager.CheckCertificateRevocationList = false;
             ServicePointManager.DefaultConnectionLimit = 100;
             ServicePointManager.Expect100Continue = false;
